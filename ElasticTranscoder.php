@@ -81,7 +81,7 @@ class AWS_ET {
       }
     }
     if (!empty($userMeta)) {
-      $requestBody['UserMetadata'] = $userMeta
+      $requestBody['UserMetadata'] = $userMeta;
     }
     $requestBody['PipelineId'] = $pipelineId;
     $requestBody = json_encode($requestBody);
