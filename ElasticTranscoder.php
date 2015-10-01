@@ -80,8 +80,8 @@ class AWS_ET {
         $requestBody['Playlists']['OutputKeys'] = $playlists['OutputKeys'];
       }
     }
-    if (!empty($userMeta)) {
-      $requestBody['UserMetadata'] = $userMeta;
+    if (!empty($userMetadata)) {
+      $requestBody['UserMetadata'] = $userMetadata;
     }
     $requestBody['PipelineId'] = $pipelineId;
     $requestBody = json_encode($requestBody);
