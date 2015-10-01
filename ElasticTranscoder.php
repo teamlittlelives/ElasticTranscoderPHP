@@ -41,7 +41,7 @@ class AWS_ET {
   * @param array $Playlists info about master playlist
   * @return array | false
   */
-  public static function createJob($input, $outputs, $pipelineId, $outputKeyPrefix = null, $playlists = array()) {
+  public static function createJob($input, $outputs, $pipelineId, $outputKeyPrefix = null, $playlists = array(), $userMetadata = array()) {
     self::resetProps();
     self::$HttpRequestMethod = 'POST';
     self::$Uri = '/2012-09-25/jobs';
@@ -79,6 +79,9 @@ class AWS_ET {
       if (array_key_exists('OutputKeys', $playlists)) {
         $requestBody['Playlists']['OutputKeys'] = $playlists['OutputKeys'];
       }
+    }
+    if (!empty($userMeta)) {
+      $requestBody['UserMetadata'] = $userMeta
     }
     $requestBody['PipelineId'] = $pipelineId;
     $requestBody = json_encode($requestBody);
